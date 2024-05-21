@@ -32,6 +32,8 @@ Discarded input sections
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
+ .text._Z10stop_clockb
+                0x00000000       0x14 main.o
  .text          0x00000000        0x0 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
  .data          0x00000000        0x0 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
  .bss           0x00000000        0x0 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
@@ -273,7 +275,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x10de
+.text           0x00000000     0x12ac
  *(.vectors)
  .vectors       0x00000000       0xb4 B:/programy/MICROCHIP/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328pb/avr5/crtatmega328pb.o
                 0x00000000                __vector_default
@@ -373,7 +375,6 @@ END GROUP
                 0x000002ce                __vector_40
                 0x000002ce                __vector_8
                 0x000002ce                __vector_26
-                0x000002ce                __vector_14
                 0x000002ce                __vector_10
                 0x000002ce                __vector_16
                 0x000002ce                __vector_18
@@ -417,67 +418,79 @@ END GROUP
  .text._Z4waitv
                 0x0000066a       0x4e main.o
                 0x0000066a                _Z4waitv
+ .text._Z11print_startv
+                0x000006b8       0x68 main.o
+                0x000006b8                _Z11print_startv
+ .text._Z10print_overv
+                0x00000720       0x9c main.o
+                0x00000720                _Z10print_overv
+ .text._Z10main_clockv
+                0x000007bc       0x14 main.o
+                0x000007bc                _Z10main_clockv
  .text._Z10toggle_scrv
-                0x000006b8       0x2a main.o
-                0x000006b8                _Z10toggle_scrv
+                0x000007d0       0x2a main.o
+                0x000007d0                _Z10toggle_scrv
  .text._Z12toggle_framev
-                0x000006e2       0x50 main.o
-                0x000006e2                _Z12toggle_framev
+                0x000007fa       0x62 main.o
+                0x000007fa                _Z12toggle_framev
  .text._Z17toggle_scoreboardv
-                0x00000732       0x72 main.o
-                0x00000732                _Z17toggle_scoreboardv
+                0x0000085c       0x24 main.o
+                0x0000085c                _Z17toggle_scoreboardv
  .text._Z17clear_scoreborardv
-                0x000007a4       0x46 main.o
-                0x000007a4                _Z17clear_scoreborardv
+                0x00000880       0x46 main.o
+                0x00000880                _Z17clear_scoreborardv
  .text._Z17change_scoreboardj
-                0x000007ea      0x102 main.o
-                0x000007ea                _Z17change_scoreboardj
+                0x000008c6      0x102 main.o
+                0x000008c6                _Z17change_scoreboardj
  .text._Z10clear_timev
-                0x000008ec       0x46 main.o
-                0x000008ec                _Z10clear_timev
+                0x000009c8       0x52 main.o
+                0x000009c8                _Z10clear_timev
  .text._Z8set_timev
-                0x00000932       0x2c main.o
-                0x00000932                _Z8set_timev
+                0x00000a1a       0x2c main.o
+                0x00000a1a                _Z8set_timev
  .text._Z14increment_timev
-                0x0000095e      0x12c main.o
-                0x0000095e                _Z14increment_timev
+                0x00000a46      0x12c main.o
+                0x00000a46                _Z14increment_timev
  .text._Z10enable_lcdv
-                0x00000a8a       0x1e main.o
-                0x00000a8a                _Z10enable_lcdv
- .text.main     0x00000aa8       0x2a main.o
-                0x00000aa8                main
+                0x00000b72       0x26 main.o
+                0x00000b72                _Z10enable_lcdv
+ .text.__vector_14
+                0x00000b98       0x88 main.o
+                0x00000b98                __vector_14
+ .text.main     0x00000c20       0x80 main.o
+                0x00000c20                main
  .text.libgcc.div
-                0x00000ad2       0x18 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
-                0x00000ad2                __udivmodqi4
+                0x00000ca0       0x18 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
+                0x00000ca0                __udivmodqi4
  .text.avr-libc
-                0x00000aea       0x60 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(snprintf.o)
-                0x00000aea                snprintf
+                0x00000cb8       0x60 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(snprintf.o)
+                0x00000cb8                snprintf
  .text.avr-libc
-                0x00000b4a      0x3c2 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
-                0x00000b4a                vfprintf
+                0x00000d18      0x3c2 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x00000d18                vfprintf
  .text.avr-libc
-                0x00000f0c       0x16 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
-                0x00000f0c                strnlen_P
+                0x000010da       0x16 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x000010da                strnlen_P
  .text.avr-libc
-                0x00000f22       0x16 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
-                0x00000f22                strnlen
+                0x000010f0       0x16 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x000010f0                strnlen
  .text.avr-libc
-                0x00000f38       0x78 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fputc.o)
-                0x00000f38                fputc
+                0x00001106       0x78 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x00001106                fputc
  .text.avr-libc
-                0x00000fb0       0xbc b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
-                0x00000fb0                __ultoa_invert
+                0x0000117e       0xbc b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x0000117e                __ultoa_invert
  .text.libgcc.prologue
-                0x0000106c       0x38 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
-                0x0000106c                __prologue_saves__
+                0x0000123a       0x38 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
+                0x0000123a                __prologue_saves__
  .text.libgcc.prologue
-                0x000010a4       0x36 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
-                0x000010a4                __epilogue_restores__
-                0x000010da                . = ALIGN (0x2)
+                0x00001272       0x36 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
+                0x00001272                __epilogue_restores__
+                0x000012a8                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000010da        0x0 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x000010da                _exit
-                0x000010da                exit
+ .fini9         0x000012a8        0x0 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x000012a8                _exit
+                0x000012a8                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -496,11 +509,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000010da        0x4 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x000012a8        0x4 b:/programy/microchip/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000010de                _etext = .
+                0x000012ac                _etext = .
 
-.data           0x00800100       0x30 load address 0x000010de
+.data           0x00800100       0x7c load address 0x000012ac
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -508,36 +521,45 @@ END GROUP
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800100       0x2f main.o
-                                 0x35 (size before relaxing)
+                0x00800100       0x7b main.o
+                                 0x81 (size before relaxing)
  *(.gnu.linkonce.r*)
-                0x00800130                . = ALIGN (0x2)
- *fill*         0x0080012f        0x1 
-                0x00800130                _edata = .
-                0x00800130                PROVIDE (__data_end, .)
+                0x0080017c                . = ALIGN (0x2)
+ *fill*         0x0080017b        0x1 
+                0x0080017c                _edata = .
+                0x0080017c                PROVIDE (__data_end, .)
 
-.bss            0x00800130      0x1fc
-                0x00800130                PROVIDE (__bss_start, .)
+.bss            0x0080017c      0x1ff
+                0x0080017c                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss.CURRENT_SEC
-                0x00800130        0x1 main.o
-                0x00800130                CURRENT_SEC
+                0x0080017c        0x1 main.o
+                0x0080017c                CURRENT_SEC
  .bss.CURRENT_MIN
-                0x00800131        0x1 main.o
-                0x00800131                CURRENT_MIN
- .bss.lcd       0x00800132      0x1fa main.o
-                0x00800132                lcd
+                0x0080017d        0x1 main.o
+                0x0080017d                CURRENT_MIN
+ .bss.INNER_TIMER_SCORE
+                0x0080017e        0x1 main.o
+                0x0080017e                INNER_TIMER_SCORE
+ .bss.INNER_TIMER_GAME
+                0x0080017f        0x1 main.o
+                0x0080017f                INNER_TIMER_GAME
+ .bss.CLOCK_STOP
+                0x00800180        0x1 main.o
+                0x00800180                CLOCK_STOP
+ .bss.lcd       0x00800181      0x1fa main.o
+                0x00800181                lcd
  *(COMMON)
-                0x0080032c                PROVIDE (__bss_end, .)
-                0x000010de                __data_load_start = LOADADDR (.data)
-                0x0000110e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0080037b                PROVIDE (__bss_end, .)
+                0x000012ac                __data_load_start = LOADADDR (.data)
+                0x00001328                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080032c        0x0
+.noinit         0x0080037b        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080032c                _end = .
+                0x0080037b                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -606,42 +628,42 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0xc8
+.debug_aranges  0x00000000       0xf0
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0xc8 main.o
+                0x00000000       0xf0 main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1c9f
+.debug_info     0x00000000     0x20d4
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x8ea B:/programy/MICROCHIP/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328pb/avr5/crtatmega328pb.o
- .debug_info    0x000008ea     0x13b5 main.o
+ .debug_info    0x000008ea     0x17ea main.o
 
-.debug_abbrev   0x00000000      0xb6a
+.debug_abbrev   0x00000000      0xbaa
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x86e B:/programy/MICROCHIP/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328pb/avr5/crtatmega328pb.o
- .debug_abbrev  0x0000086e      0x2fc main.o
+ .debug_abbrev  0x0000086e      0x33c main.o
 
-.debug_line     0x00000000      0x985
+.debug_line     0x00000000      0xb42
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x1a6 B:/programy/MICROCHIP/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328pb/avr5/crtatmega328pb.o
- .debug_line    0x000001a6      0x7df main.o
+ .debug_line    0x000001a6      0x99c main.o
 
-.debug_frame    0x00000000      0x270
+.debug_frame    0x00000000      0x30c
  *(.debug_frame)
- .debug_frame   0x00000000      0x270 main.o
+ .debug_frame   0x00000000      0x30c main.o
 
-.debug_str      0x00000000      0x80b
+.debug_str      0x00000000      0x8cd
  *(.debug_str)
  .debug_str     0x00000000      0x318 B:/programy/MICROCHIP/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328pb/avr5/crtatmega328pb.o
- .debug_str     0x00000318      0x4f3 main.o
-                                0x531 (size before relaxing)
+ .debug_str     0x00000318      0x5b5 main.o
+                                0x5f3 (size before relaxing)
 
-.debug_loc      0x00000000      0xac7
+.debug_loc      0x00000000      0xbde
  *(.debug_loc)
- .debug_loc     0x00000000      0xac7 main.o
+ .debug_loc     0x00000000      0xbde main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -661,9 +683,9 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000       0xb8
+.debug_ranges   0x00000000       0xe0
  *(.debug_ranges)
- .debug_ranges  0x00000000       0xb8 main.o
+ .debug_ranges  0x00000000       0xe0 main.o
 
 .debug_macro
  *(.debug_macro)
