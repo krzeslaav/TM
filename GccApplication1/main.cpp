@@ -15,6 +15,7 @@
 
 LCD lcd;
 
+char LAST_DIRECTION = 'n';
 uint8_t CLOCK_STOP = 0;
 uint8_t INNER_TIMER_GAME = 0;
 uint8_t INNER_TIMER_SCORE = 0;
@@ -58,6 +59,30 @@ void print_over(){
 	
 }
 
+
+char detect_button(){
+	char dir = 'a';
+	switch(PINB){
+		case 0b10001110:
+		dir = 'w';
+		break;
+		case 0b10001101:
+		dir = 's';
+		break;
+		case 0b10001011:
+		dir = 'a';
+		break;
+		case 0b10000111:
+		dir = 'd';
+		break;
+		default:
+		dir = LAST_DIRECTION;
+		
+		break;
+	}
+	LAST_DIRECTION = dir;
+	return dir;
+}
 
 void main_clock(){
 	// MAIN TIMER, SET FOR t = 0.016 [s], f = 61 [Hz]
@@ -111,7 +136,7 @@ void toggle_scoreboard(){		// PRINT SCOREBOARD
 	|--T-- --\0--  --X-- --X-- --:-- --X-- --X-- --\0-- --S-- --0-- --0-- --0-- --0-- |
 	|--T-- --\0--  --X-- --X-- --:-- --X-- --X-- --\0-- --S-- --0-- --0-- --0-- --0-- |
 	|--T-- --\0--  --X-- --X-- --:-- --X-- --X-- --\0-- --S-- --0-- --0-- --0-- --0-- |
-	|________________________________________________________________________________|
+	|_________________________________________________________________________________|
 							One letter size : 5px X 5px 
 	*/
 
@@ -211,6 +236,8 @@ void increment_time(){
 }
 
 void enable_lcd(){
+	// also set the DDRB for the buttons
+	
 	
  	toggle_scr();
 	lcd.clear();
@@ -258,26 +285,27 @@ void stop_clock(bool var){ // if do == 1, CLOCK_STOP = 1, else CLOCK STOP = 0
 
 int main(void)
 {
+	DDRB = 0b110000;
+	PINB = 0b001111;
 	
-	
-	DDRB = 0x77;
-	PORTB = 0b111111;
+	//DDRB = 0x77;
+	//PORTB = 0b111111;
 	
 	uint16_t score = 1519;
 	uint16_t game_start = 0;
 	uint16_t game_over = 0;
 	toggle_scr();
-
+	char current_direction = 'n';
+	
 	while(1) {
 		print_start();
-		wait(); // wait for button press, if so, change game_start = 1
 		wait();
-		wait();
-		wait();
-		wait();
-		wait();
-		
-		game_start = 1;
+		current_direction = 'n';
+		LAST_DIRECTION = 'n';
+		current_direction = detect_button();
+		if (current_direction != 'n'){
+			game_start = 1;
+		}
 		
 		if( game_start != 0){
 			lcd.clear();
@@ -296,28 +324,33 @@ int main(void)
 				wait();			// if snake hit itself, game_over = 1
 				game_over = 1;
 				if (game_over == 1){
+
 					lcd.clear();
 					lcd.render();
 					
 					CLOCK_STOP = 1;
 					
-					print_over();	// print game over screen
+					print_over();	
 					
 					game_start = 0;
 					game_over = 0;
+					current_direction = 'n';
+					LAST_DIRECTION = 'n';
+					
 					while(1){
-						// wait for button press, to start over
-						wait();
-						wait();
-						wait();
-						wait();
-						wait();		// wait for press of a button to exit to the main screen, if so, game_start = 1
-						game_start = 1;
+						// wait for button press, to start over	
+						// wait for press of a button to exit to the main screen, if so, game_start = 1
 						
-						if(game_start != 0) {break;};
+						current_direction = detect_button();
+						if (current_direction != 'n'){
+							game_start = 1;
+						}
+						
+						
+						if(game_start != 0) {wait(); break;};
 					}
-					break;
 				}
+				break;
 			}
 		}
 		
